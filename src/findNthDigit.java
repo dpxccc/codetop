@@ -15,6 +15,46 @@ public class findNthDigit {
         if (n < 10) {
             return n;
         }
+        //先找到n在哪一个数字里，再寻找第n位是哪个数
+        //每一个位数的总共数字个数有9,90,900即Math.pow(10,i-1)*9*i
+        int i = 1;
+        while (9 * Math.pow(10, i - 1) * i < n) {
+            n -= 9 * Math.pow(10, i - 1) * i;
+            i++;
+        }
+        //如果正好结束，说明就是刚刚的最后一位数的最后一位，就是9,99,999等等
+        if (n == 0) {
+            return 9;
+        }
+        //下一位的开头
+        int x = (int) Math.pow(10, i - 1);
+        //剩余的数字在i位数中占了多少个
+        int s = n / i;
+        int mod = n % i;
+        //这儿的x <= 目标数，如果mod是0，说明就是x的最后一位，否则就是x+1 从左往右数的第mod位
+        x += s - 1;
+        return mod == 0 ? x % 10 : (x + 1) / (int) (Math.pow(10, i - mod)) % 10;
+
+
+        //如果mod==0，说明就是刚刚的最后一位
+        // if (mod == 0) {
+        //     //因为包含了10,100,1000等，所以要减一
+        //     return (x + s - 1) % 10;
+        // }
+        // //mod>0说明第n位在下一个数字中
+        // x += s;
+        // int temp = i - mod;
+        // while (temp-- != 0) {
+        //     x /= 10;
+        // }
+        // return x % 10;
+
+    }
+
+    public int findNthDigit1(int n) {
+        if (n < 10) {
+            return n;
+        }
         // ch表示位数
         int ch = 1;
         long tmp = 9;
