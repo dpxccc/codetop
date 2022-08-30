@@ -19,6 +19,7 @@ public class findNumberOfLIS {
         int res = 0;
         Arrays.fill(dp, 1);
         Arrays.fill(count, 1);
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 // 只有在当前数比前面数大的时候才需要进行判断
