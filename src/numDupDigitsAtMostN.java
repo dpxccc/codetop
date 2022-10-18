@@ -31,7 +31,7 @@ public class numDupDigitsAtMostN {
         if (!hasNum) res = dfs(i + 1, mask, false, false, false);
         int up = isLimit ? s[i] - '0' : 9;
         for (int k = hasNum ? 0 : 1; k <= up; k++) {
-            res += dfs(i + 1, mask | (1 << k), isLimit && k == up, true, isRepeat | ((mask >> k) & 1) == 1);
+            res += dfs(i + 1, mask | (1 << k), isLimit && k == up, true, isRepeat || ((mask >> k) & 1) == 1);
             //    if (((mask >> k) & 1) == 0) {
             //        res += dfs(i + 1, mask | (1 << k), isLimit && k == up, true, isRepeat);
             //    } else {
