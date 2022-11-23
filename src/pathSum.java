@@ -38,7 +38,7 @@ public class pathSum {
         list.remove(list.size() - 1);
     }
 
-    public class TreeNode {
+/*    public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -55,5 +55,5 @@ public class pathSum {
             this.left = left;
             this.right = right;
         }
-    }
+    }*/
 }
