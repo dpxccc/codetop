@@ -12,6 +12,7 @@ import java.util.Map;
 public class a30findSubstring {
 
     public static void main(String[] args) {
+		String a = "test";
         a30findSubstring a = new a30findSubstring();
         System.out.println(a.findSubstring("barfoofoobarthefoobarman", new String[]{"bar","foo","the"}));
     }
